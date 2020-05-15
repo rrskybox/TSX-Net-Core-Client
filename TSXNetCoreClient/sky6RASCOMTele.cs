@@ -1,43 +1,100 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TSXNetCoreClient
 {
     public class sky6RASCOMTele
     {
+        const string TSXCLASS = "sky6RASCOMTele.";
         const string CR = "\r\n";
 
-        public void Connect() => Link.TSXSend("sky6RASCOMTele.Connect()");
+        #region methods
 
-        public void Disconnect() => Link.TSXSend("sky6RASCOMTele.Disconnect()");
+        public void Abort() => Link.TSXSend(TSXCLASS + "Abort()");
+
+        public void CommutateMotors() => Link.TSXSend(TSXCLASS + "CommutateMotors()");
+
+        public void Connect() => Link.TSXSend(TSXCLASS + "Connect()");
+
+        public void DoCommand(int lParam, string qsParam) =>
+            Link.TSXSend("var name=\"" + qsParam + "\";" + CR + TSXCLASS + "DoCommand(" + lParam.ToString() + ",name);");
+
+        public void Disconnect() => Link.TSXSend(TSXCLASS + "Disconnect()");
+
+        public void FindHome() => Link.TSXSend(TSXCLASS + "FindHome()");
+
+        public void FocusInFast() => Link.TSXSend(TSXCLASS + "FocusInFast()");
+
+        public void FocusInSlow() => Link.TSXSend(TSXCLASS + "FocusInSlow()");
+
+        public void FocusOutFast() => Link.TSXSend(TSXCLASS + "FocusOutFast()");
+
+        public void FocusOutSlow() => Link.TSXSend(TSXCLASS + "FocusOutSlo(w)");
+
+        public void GetAzAlt() => Link.TSXSend(TSXCLASS + "GetAzAlt()");
+
+        public void GetRaDec() => Link.TSXSend(TSXCLASS + "GetRaDec()");
+
+        public void Jog(double dJogAmtInMins, string lpszDirection) =>
+            Link.TSXSend("var name=\"" + lpszDirection + "\";" + CR + TSXCLASS + "Jog(" + dJogAmtInMins.ToString() + ",name);");
+
+        public void SetParkPosition() => Link.TSXSend(TSXCLASS + "SetParkPosition()");
+
+        public void SetTracking(int lOn, int lIgnoreRates, double dRaRate, double dDecRate) =>
+                        Link.TSXSend(TSXCLASS + "SetTracking(" + lOn.ToString() + "," + lIgnoreRates.ToString() + dRaRate.ToString() + dDecRate.ToString() + ")");
 
         public void SlewToAzAlt(double az, double alt, string name) =>
-            Link.TSXSend("var name=\"" + name + "\";" + CR + "sky6RASCOMTele.SlewToAzAlt(" + az + "," + alt + "," + "name" + ")");
+             Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToAzAlt(" + az.ToString() + "," + alt.ToString() + "," + "name" + ")");
 
         public void SlewToRaDec(double ra, double dec, string name) =>
-           Link.TSXSend("var name=\"" + name + "\";" + CR + "sky6RASCOMTele.SlewToRaDec(" + ra + "," + dec + "," + "name" + ")");
+           Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToRaDec(" + ra.ToString() + "," + dec.ToString() + "," + "name" + ")");
 
-        public void GetAzAlt() => Link.TSXSend("sky6RASCOMTele.GetAzAlt()");
+        public void Sync(double dRa, double dDec, string lpszObjectName) =>
+            Link.TSXSend("var name=\"" + lpszObjectName + "\";" + CR + TSXCLASS + "Sync(" + dRa.ToString() + dDec.ToString() + ",name);");
 
-        public void GetRaDec() => Link.TSXSend("sky6RASCOMTele.GetRaDec()");
+        public void Park() => Link.TSXSend(TSXCLASS + "Park()");
 
-        public double dAz { get => Convert.ToDouble(Link.TSXSend("sky6RASCOMTele.dAz")); }
+        public void Unpark() => Link.TSXSend(TSXCLASS + "Unpark()");
 
-        public double dAlt { get => Convert.ToDouble(Link.TSXSend("sky6RASCOMTele.dAlt")); }
+        public void ParkAndDoNotDisconnect() => Link.TSXSend(TSXCLASS + "ParkAndDoNotDisconnect()");
 
-        public double dRa { get => Convert.ToDouble(Link.TSXSend("sky6RASCOMTele.dRa")); }
+        public bool IsParked() => Convert.ToBoolean(Link.TSXSend(TSXCLASS + "IsParked()"));
 
-        public double dDec { get => Convert.ToDouble(Link.TSXSend("sky6RASCOMTele.dDec")); }
+        public void ConnectAndDoNotUnpark() => Link.TSXSend(TSXCLASS + "ConnectAndDoNotUnpark()");
 
-        public bool IsParked() => Convert.ToBoolean(Link.TSXSend("sky6RASCOMTele.IsParked()")); 
-   
-        public void Park() => Link.TSXSend("sky6RASCOMTele.Park()");
-      
-        public void Unpark() => Link.TSXSend("sky6RASCOMTele.Unpark()");
+        #endregion
 
-        public void ParkAndDoNotDisconnect() => Link.TSXSend("sky6RASCOMTele.ParkAndDoNotDisconnect()");
+        #region properties
 
-        public void ConnectAndDoNotUnpark() => Link.TSXSend("sky6RASCOMTele.ConnectAndDoNotUnpark()");
+        #endregion
+        public double dAz { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAz")); }
+
+        public double dAlt { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAlt")); }
+
+        public double dRa { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dRa")); }
+
+        public double dDec { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dDec")); }
+
+        public int Asynchronous
+        {
+            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Asynchronous"));
+            set => Link.TSXSend(TSXCLASS + "Asynchronous=" + value.ToString() + ";");
+        }
+
+        public double dDecTrackingRate { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dDecTrackingRate")); }
+
+        public double dRaTrackingRate { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dRaTrackingRate")); }
+
+        public double LastSlewError { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "LastSlewError")); }
+
+        public int IsConnected { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected")); }
+
+        public int IsInLimit { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsInLimit")); }
+
+        public int IsSlewComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsSlewComplete")); }
+
+        public int IsTracking { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsTracking")); }
+
+        public string DoCommandOutput { get => Link.TSXSend(TSXCLASS + "DoCommandOutput"); }
+
     }
 }

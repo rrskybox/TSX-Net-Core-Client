@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TSXNetCoreClient
 {
@@ -18,7 +16,7 @@ namespace TSXNetCoreClient
             osLinux
         }
 
-        //public operatingSystem operatingSystem { get => (operatingSystem)Enum.Parse(typeof(operatingSystem), Link.TSXSend("Application.build"), true); }
+        public Application.operatingSystem AltOperatingSystem { get => (operatingSystem)Enum.Parse(typeof(operatingSystem), Link.TSXSend("Application.operatingSystem"), true); }
 
     }
 }
