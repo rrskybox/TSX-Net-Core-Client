@@ -1,6 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class csky6StarChart
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
@@ -23,7 +32,7 @@ namespace TSXNetCoreClient
 
         public void Find(string ObjectName) =>
             Link.TSXSend(TSXCLASS + "Find(" +
-                ObjectName.ToString() + ")");
+                "\"" + ObjectName + "\"" + ")");
 
         public void Refresh() => Link.TSXSend(TSXCLASS + "Refresh()");
 
@@ -37,22 +46,22 @@ namespace TSXNetCoreClient
         public void UpdateSolarSystem() => Link.TSXSend(TSXCLASS + "UpdateSolarSystem()");
 
         public void DocumentProperty(Sk6DocumentProperty Which) =>
-            Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                Which.ToString() + ")");
+            Link.TSXSend(TSXCLASS + "DocumentProperty(" +
+                ((int)Which).ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, double vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                Which.ToString() + "," +
+                ((int)Which).ToString() + "," +
                 vNewVal.ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, int vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                Which.ToString() + "," +
+                ((int)Which).ToString() + "," +
                 vNewVal.ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, string vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                ((Int32)(object)Which).ToString() + "," +
+                ((int)(object)Which).ToString() + "," +
                 vNewVal + ")");
 
         public void DisplayProperty(Sk6DisplayPropertyObjectType nIndex, Sk6DisplayPropertySkyMode Mode, Sk6DisplayProperty Prop, Sk6DisplayPropertyItem Item) =>
@@ -92,21 +101,21 @@ namespace TSXNetCoreClient
 
         public double Declination
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Declination"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "Declination"));
             set => Link.TSXSend(TSXCLASS + "Declination=" + value.ToString() + ";");
         }
 
 
         public double FieldOfView
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "FieldOfView"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "FieldOfView"));
             set => Link.TSXSend(TSXCLASS + "FieldOfView=" + value.ToString() + ";");
         }
 
 
         double Rotation
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Rotation"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "Rotation"));
             set => Link.TSXSend(TSXCLASS + "Rotation=" + value.ToString() + ";");
         }
 

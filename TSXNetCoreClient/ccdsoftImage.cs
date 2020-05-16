@@ -8,7 +8,7 @@ namespace TSXNetCoreClient
         const string CR = "\r\n";
 
         #region enumerations
-           public enum ccdsoftCoordinates { cdRA, cdDec }
+        public enum ccdsoftCoordinates { cdRA, cdDec }
 
         public enum ccdsoftSaveAs { cdGIF, cdBMP, cdJPG, cd48BitTIF }
 
@@ -42,12 +42,12 @@ namespace TSXNetCoreClient
 
         public int AttachToActiveAutoguider() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveAutoguider()"));
 
-        public string FITSKeyword(string qsKeyword) => Link.TSXSend(TSXCLASS + "FITSKeyword()");
+        public string FITSKeyword(string qsKeyword) => Link.TSXSend(TSXCLASS + "FITSKeyword(" + "\"" +qsKeyword + "\"" +")");
 
         public void setFITSKeyword(string qsKeyword, string value) =>
                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
-                       qsKeyword.ToString() + "," +
-                       value.ToString() + ")"));
+                       "\"" + qsKeyword + "\""+ "," +
+                       "\"" + value + "\""  + ")"));
 
         public int InsertWCS(int RedoExistingSolution) =>
             Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
@@ -67,7 +67,13 @@ namespace TSXNetCoreClient
 
         public int ShowInventory() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "ShowInventory()"));
 
-        public double[] InventoryArray(int InventoryIndex) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "InventoryArray(" + InventoryIndex.ToString() + ")")).Split(','), double.Parse);
+        public double[] InventoryArray(int InventoryIndex)
+        {
+            string a = Link.TSXSend(TSXCLASS + "InventoryArray(" + InventoryIndex.ToString() + ")");
+            string[] aArray = a.Split(',',StringSplitOptions.RemoveEmptyEntries );
+            double [] dArray = Array.ConvertAll(aArray, double.Parse);
+            return dArray;
+        }
 
         public string FindInventoryAtRADec(double RA, double Dec) =>
             Link.TSXSend(TSXCLASS + "FindInventoryAtRADec(" +
@@ -109,7 +115,7 @@ namespace TSXNetCoreClient
         public double averagePixelValue() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "averagePixelValue()"));
 
         public Int32[] scanLine(int i) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "scanLine(" + i.ToString() + ")")).Split(','), int.Parse);
-      
+
         public double XYToRADecResultRA() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADecResultRA()"));
 
         public double XYToRADecResultDec() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "XYToRADecResultDec()"));

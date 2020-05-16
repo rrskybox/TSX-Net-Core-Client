@@ -1,4 +1,15 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class ClosedLoopSlew
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
@@ -9,11 +20,15 @@ namespace TSXNetCoreClient
 
         #region methods
 
-        public int exec() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "exec()"));
+        public int exec()
+        {
+            try { return Convert.ToInt32(Link.TSXSend(TSXCLASS + "exec()")); }
+            catch { return -1; }
+        }
 
         #endregion
 
-        #region properties
+            #region properties
 
         public int asynchronous
         {

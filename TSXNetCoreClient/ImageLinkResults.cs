@@ -1,4 +1,15 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class ImageLinkResults
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
@@ -17,13 +28,13 @@ namespace TSXNetCoreClient
 
         public string errorText { get => (Link.TSXSend(TSXCLASS + "errorText")); }
 
-        public double imageScale { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageScale")); }
+        public double imageScale { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imageScale")); }
 
-        public double imagePositionAngle { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imagePositionAngle")); }
+        public double imagePositionAngle { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imagePositionAngle")); }
 
-        public double imageCenterRAJ2000 { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageCenterRAJ2000")); }
+        public double imageCenterRAJ2000 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imageCenterRAJ2000")); }
 
-        public double imageCenterDecJ2000 { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageCenterDecJ2000")); }
+        public double imageCenterDecJ2000 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imageCenterDecJ2000")); }
 
         public int imageWidthInPixels { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageWidthInPixels")); }
 
@@ -35,13 +46,13 @@ namespace TSXNetCoreClient
 
         public int imageStarCount { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageStarCount")); }
 
-        public double imageFWHMInArcSeconds { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "imageFWHMInArcSeconds")); }
+        public double imageFWHMInArcSeconds { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imageFWHMInArcSeconds")); }
 
-        public double solutionRMS { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "solutionRMS")); }
+        public double solutionRMS { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "solutionRMS")); }
 
-        public double solutionRMSX { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "solutionRMSX")); }
+        public double solutionRMSX { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "solutionRMSX")); }
 
-        public double solutionRMSY { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "solutionRMSY")); }
+        public double solutionRMSY { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "solutionRMSY")); }
 
         public int solutionStarCount { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "solutionStarCount")); }
 

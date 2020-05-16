@@ -1,4 +1,15 @@
-﻿namespace TSXNetCoreClient
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class TSXNetCoreClient (Common Enums)
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+namespace TSXNetCoreClient
 {
     public class TSXNetCoreClient { }
 
@@ -228,7 +239,7 @@
         cdHLNone, cdHLWeak, cdHLMedium, cdHLStrong,
         cdHLVeryStrong, cdHLAdaptive, cdHLPlanetary
     }
-        enum SkXUtilsSexagesimalFormat
+    enum SkXUtilsSexagesimalFormat
     {
         FMT_DMS = 0, FMT_DMS_SIGN = 1, FMT_DMS_NS = 2, FMT_DMS_EW = 3,
         FMT_HMS = 4, FMT_TIME = 5, FMT_DMS_MINIM = 6, FMT_COMMAS = 7,

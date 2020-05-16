@@ -1,6 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class sky6Utils
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
@@ -14,11 +23,11 @@ namespace TSXNetCoreClient
 
         public void ConvertStringToRA(string strRA) =>
                  Link.TSXSend(TSXCLASS + "ConvertStringToRA(" +
-                      strRA.ToString() + ")");
+                      "\"" + strRA + "\""  + ")");
 
         public void ConvertStringToDec(string strDec) =>
            Link.TSXSend(TSXCLASS + "ConvertStringToDec(" +
-                strDec.ToString() + ")");
+                "\"" + strDec + "\""  + ")");
 
         public void ConvertEquatorialToString(double RA1, double Dec1, int SigFigs) =>
            Link.TSXSend(TSXCLASS + "ConvertEquatorialToString(" +
@@ -120,7 +129,7 @@ namespace TSXNetCoreClient
            Link.TSXSend(TSXCLASS + "ClickFind(" +
                 RA.ToString() + "," +
                 Dec.ToString() + ")");
-  
+
         #endregion
 
         #region properties

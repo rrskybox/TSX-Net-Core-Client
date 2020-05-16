@@ -1,11 +1,21 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class sky6Dome
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
     public class sky6Dome
     {
-
-        const string TSXCLASS = "sky6DataWizard.";
+        const string TSXCLASS = "sky6Dome.";
         const string CR = "\r\n";
 
         #region enumerations

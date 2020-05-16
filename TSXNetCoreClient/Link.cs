@@ -1,4 +1,15 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class Link
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -7,7 +18,6 @@ namespace TSXNetCoreClient
 {
     public static class Link
     {
-        const string TSXHost = "10.71.4.5";
         const int TSXPort = 3040;              // 3040 is the default, it can be changed
         const string CR = "\r\n";
 
@@ -19,7 +29,7 @@ namespace TSXNetCoreClient
                command + ";" + CR + CR +
                 "/* Socket End Packet */";
 
-            ////Console.WriteLine("Socket: " + CR + fullMessage);
+            Console.WriteLine("Socket: " + CR + fullMessage);
             // Establish the remote endpoint  
             // for the socket.
             IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
@@ -56,7 +66,7 @@ namespace TSXNetCoreClient
                 // convert them to string 
                 int byteRecv = sender.Receive(messageReceived);
                 tsxIn = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
-                //Console.WriteLine("Socket: Message from Server -> " + tsxIn);
+                Console.WriteLine("Socket: Message from Server -> " + tsxIn);
                 tsxIn = (tsxIn.Split('|'))[0];
 
                 // Close Socket using  

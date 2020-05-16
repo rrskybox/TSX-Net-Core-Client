@@ -1,4 +1,15 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class sk6RASCOMTele
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {

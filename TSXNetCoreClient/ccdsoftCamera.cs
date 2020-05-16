@@ -1,4 +1,15 @@
-﻿using System;
+﻿//***************************************************************************************
+//
+// Library TSXNetCoreClient: Class ccdsoftCamera
+// Derived from SoftwareBisque, ScriptTheSkyX Specification V1.27
+// Date: 14-May-2020
+// Author: Rick McAlister, et. al.
+// Version -- See Visual Studio Project
+// Licence -- open
+// 
+//***************************************************************************************
+
+using System;
 
 namespace TSXNetCoreClient
 {
@@ -6,7 +17,6 @@ namespace TSXNetCoreClient
     {
         const string TSXCLASS = "ccdsoftCamera.";
         const string CR = "\r\n";
-
 
 
         #region methods
@@ -288,7 +298,7 @@ namespace TSXNetCoreClient
 
         public double GuideStarX
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "GuideStarX"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "GuideStarX"));
             set => Link.TSXSend(TSXCLASS + "GuideStarX=" + value.ToString() + ";");
         }
 
@@ -366,7 +376,7 @@ namespace TSXNetCoreClient
 
         public double AutoguiderBacklashXAxis
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AutoguiderBacklashXAxis"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "AutoguiderBacklashXAxis"));
             set => Link.TSXSend(TSXCLASS + "AutoguiderBacklashXAxis=" + value.ToString() + ";");
         }
 
@@ -528,13 +538,13 @@ namespace TSXNetCoreClient
 
         public double DeclinationAtCalibration
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "DeclinationAtCalibration"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "DeclinationAtCalibration"));
             set => Link.TSXSend(TSXCLASS + "DeclinationAtCalibration=" + value.ToString() + ";");
         }
 
         public double TelescopeDeclination
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "TelescopeDeclination"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "TelescopeDeclination"));
             set => Link.TSXSend(TSXCLASS + "TelescopeDeclination=" + value.ToString() + ";");
         }
 
@@ -644,7 +654,7 @@ namespace TSXNetCoreClient
 
         public double MaximumPixel
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "MaximumPixel"));
+            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "MaximumPixel"));
             set => Link.TSXSend(TSXCLASS + "MaximumPixel=" + value.ToString() + ";");
         }
 
@@ -680,7 +690,7 @@ namespace TSXNetCoreClient
             Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "ProbStr(name);");
 
         public void setPropStr(string lpszPropName, string qsVal) =>
-            Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "setProbDbl(name," + qsVal.ToString() + ");");
+            Link.TSXSend("var name=\""  + lpszPropName + ";" + CR + TSXCLASS + "setProbDbl(name," + qsVal + ");");
 
         #endregion
 
