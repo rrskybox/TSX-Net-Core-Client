@@ -66,7 +66,7 @@ namespace TSXNetCoreClient
                 // convert them to string 
                 int byteRecv = sender.Receive(messageReceived);
                 tsxIn = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
-                Console.WriteLine("Socket: Message from Server -> " + tsxIn);
+                ////Console.WriteLine("Socket: Message from Server -> " + tsxIn);
                 tsxIn = (tsxIn.Split('|'))[0];
 
                 // Close Socket using  
