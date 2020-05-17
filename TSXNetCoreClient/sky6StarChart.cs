@@ -113,7 +113,7 @@ namespace TSXNetCoreClient
         }
 
 
-        double Rotation
+        public double Rotation
         {
             get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "Rotation"));
             set => Link.TSXSend(TSXCLASS + "Rotation=" + value.ToString() + ";");

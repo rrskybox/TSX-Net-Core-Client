@@ -42,12 +42,49 @@ namespace TSXNetCoreClient
 
         public int AttachToActiveAutoguider() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveAutoguider()"));
 
-        public string FITSKeyword(string qsKeyword) => Link.TSXSend(TSXCLASS + "FITSKeyword(" + "\"" +qsKeyword + "\"" +")");
+        public object FITSKeyword(string qsKeyword)
+        {
+            //FITSKeywwod returns one of three casts -- string, int or double.  This cast
+            //isn't carried in the return from the TSX tcpclient.  So, this algorithm assumes that
+            //the return string can be parsed to either 1) double or 2) integer, in that order using exceptions. The default
+            //return is a string object.
+            //
+
+            string sData = Link.TSXSend(TSXCLASS + "FITSKeyword(" + "\"" + qsKeyword + "\"" + ")");
+            try
+            {
+                double result = Double.Parse(sData);
+                return result;
+            }
+            catch
+            {
+                try
+                {
+                    int result = Int32.Parse(sData);
+                    return result;
+                }
+                catch
+                {
+                    string result = sData;
+                    return result;
+                }
+            }
+        }
 
         public void setFITSKeyword(string qsKeyword, string value) =>
                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
-                       "\"" + qsKeyword + "\""+ "," +
-                       "\"" + value + "\""  + ")"));
+                       "\"" + qsKeyword + "\"" + "," +
+                       "\"" + value + "\"" + ")"));
+
+        public void setFITSKeyword(string qsKeyword, int value) =>
+                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+                       "\"" + qsKeyword + "\"" + "," +
+                       "\"" + value.ToString() + "\"" + ")"));
+
+        public void setFITSKeyword(string qsKeyword, double value) =>
+                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+                        "\"" + qsKeyword + "\"" + "," +
+                        "\"" + value.ToString() + "\"" + ")"));
 
         public int InsertWCS(int RedoExistingSolution) =>
             Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
@@ -70,8 +107,8 @@ namespace TSXNetCoreClient
         public double[] InventoryArray(int InventoryIndex)
         {
             string a = Link.TSXSend(TSXCLASS + "InventoryArray(" + InventoryIndex.ToString() + ")");
-            string[] aArray = a.Split(',',StringSplitOptions.RemoveEmptyEntries );
-            double [] dArray = Array.ConvertAll(aArray, double.Parse);
+            string[] aArray = a.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            double[] dArray = Array.ConvertAll(aArray, double.Parse);
             return dArray;
         }
 
@@ -114,7 +151,7 @@ namespace TSXNetCoreClient
 
         public double averagePixelValue() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "averagePixelValue()"));
 
-        public Int32[] scanLine(int i) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "scanLine(" + i.ToString() + ")")).Split(','), int.Parse);
+        public double[] scanLine(int i) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "scanLine(" + i.ToString() + ")")).Split(','), double.Parse);
 
         public double XYToRADecResultRA() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADecResultRA()"));
 

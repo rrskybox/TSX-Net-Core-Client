@@ -27,7 +27,10 @@ namespace TSXNetCoreClient
         public void Abort() => Link.TSXSend(TSXCLASS + "Abort()");
 
         public void CloseSlit() => Link.TSXSend(TSXCLASS + "CloseSlit()");
+
         public void Connect() => Link.TSXSend(TSXCLASS + "Connect()");
+
+        public void Disconnect() => Link.TSXSend(TSXCLASS + "Dusconnect()");
 
         public void FindHome() => Link.TSXSend(TSXCLASS + "FindHome()");
 
