@@ -23,11 +23,11 @@ namespace TSXNetCoreClient
 
         public void ConvertStringToRA(string strRA) =>
                  Link.TSXSend(TSXCLASS + "ConvertStringToRA(" +
-                      "\"" + strRA + "\""  + ")");
+                      "\"" + strRA + "\"" + ")");
 
         public void ConvertStringToDec(string strDec) =>
            Link.TSXSend(TSXCLASS + "ConvertStringToDec(" +
-                "\"" + strDec + "\""  + ")");
+                "\"" + strDec + "\"" + ")");
 
         public void ConvertEquatorialToString(double RA1, double Dec1, int SigFigs) =>
            Link.TSXSend(TSXCLASS + "ConvertEquatorialToString(" +
@@ -56,7 +56,7 @@ namespace TSXNetCoreClient
                 JulianDay.ToString() + ")");
 
         public void ConvertCalenderToJulianDate(int Year, int Month, int Day, int Hour, int Minute, double Second) =>
-           Link.TSXSend(TSXCLASS + "ClickFind(" +
+           Link.TSXSend(TSXCLASS + "ConvertCalenderToJulianDate(" +
                 Year.ToString() + "," +
                 Month.ToString() + "," +
                 Day.ToString() + "," +
@@ -65,7 +65,7 @@ namespace TSXNetCoreClient
                 Second.ToString() + ")");
 
         public void ConvertDMSToAngle(int Degrees, int Minutes, double Seconds) =>
-           Link.TSXSend(TSXCLASS + "ConvertCalenderToJulianDate(" +
+           Link.TSXSend(TSXCLASS + "ConvertDMSToAngle(" +
                 Degrees.ToString() + "," +
                 Minutes.ToString() + "," +
                 Seconds.ToString() + ")");
@@ -95,11 +95,11 @@ namespace TSXNetCoreClient
                 Dec2.ToString() + ")");
 
         public void ComputeHourAngle(double Ra) =>
-           Link.TSXSend(TSXCLASS + "ClickFind(" +
+           Link.TSXSend(TSXCLASS + "ComputeHourAngle(" +
                 Ra.ToString() + ")");
 
         public void ComputeAirMass(double Alt) =>
-           Link.TSXSend(TSXCLASS + "ComputeHourAngle(" +
+           Link.TSXSend(TSXCLASS + "ComputeAirMass(" +
                 Alt.ToString() + ")");
 
         public void ComputeLocalSiderealTime() =>
@@ -126,7 +126,7 @@ namespace TSXNetCoreClient
                 Dec.ToString() + ")");
 
         public void Precess2000ToNow(double RA, double Dec) =>
-           Link.TSXSend(TSXCLASS + "ClickFind(" +
+           Link.TSXSend(TSXCLASS + "Precess2000ToNow(" +
                 RA.ToString() + "," +
                 Dec.ToString() + ")");
 

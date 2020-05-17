@@ -15,7 +15,7 @@ namespace TSXNetCoreClient
         #endregion
 
         #region methods
-        int Open() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "TakeImage()"));
+        int Open() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Open()"));
 
         public int Save() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Save()"));
 
@@ -72,19 +72,19 @@ namespace TSXNetCoreClient
         }
 
         public void setFITSKeyword(string qsKeyword, string value) =>
-                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                        "\"" + qsKeyword + "\"" + "," +
                        "\"" + value + "\"" + ")"));
 
         public void setFITSKeyword(string qsKeyword, int value) =>
-                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                        "\"" + qsKeyword + "\"" + "," +
-                       "\"" + value.ToString() + "\"" + ")"));
+                        value.ToString() +  ")"));
 
         public void setFITSKeyword(string qsKeyword, double value) =>
-                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                         "\"" + qsKeyword + "\"" + "," +
-                        "\"" + value.ToString() + "\"" + ")"));
+                       value.ToString() + ")"));
 
         public int InsertWCS(int RedoExistingSolution) =>
             Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
@@ -93,7 +93,7 @@ namespace TSXNetCoreClient
         public int XYToRADec(double X, double Y) =>
             Convert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADec(" +
                 X.ToString() + "," +
-                Y.ToString() + "," + ")"));
+                Y.ToString() +  ")"));
 
         public int RADecToXY(double RA, double Dec) =>
             Convert.ToInt32(Link.TSXSend(TSXCLASS + "RADecToXY(" +
@@ -173,7 +173,7 @@ namespace TSXNetCoreClient
 
         #region properties
 
-        double JulianDay { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "JulianDay")); }
+        public double JulianDay { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "JulianDay")); }
 
         public string Path
         {

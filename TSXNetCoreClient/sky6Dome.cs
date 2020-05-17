@@ -34,22 +34,21 @@ namespace TSXNetCoreClient
 
         public void FindHome() => Link.TSXSend(TSXCLASS + "FindHome()");
 
-
         public void GetAzEl() => Link.TSXSend(TSXCLASS + "GetAzEl()");
 
         public void GotoAzEl(double dAz, double dEl) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "GotoAzEl(" +
+            Link.TSXSend(TSXCLASS + "GotoAzEl(" +
                 dAz.ToString() + "," +
-                dEl.ToString() + ")"));
+                dEl.ToString() + ")");
 
         public void OpenSlit() => Link.TSXSend(TSXCLASS + "OpenSlit()");
 
         public void Park() => Link.TSXSend(TSXCLASS + "Park()");
 
         public void Sync(double dAz, double dEl) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "Sync(" +
+            Link.TSXSend(TSXCLASS + "Sync(" +
                 dAz.ToString() + "," +
-                dEl.ToString() + ")"));
+                dEl.ToString() + ")");
 
         public void Unpark() => Link.TSXSend(TSXCLASS + "Unpark()");
 

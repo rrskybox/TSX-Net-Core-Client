@@ -41,7 +41,7 @@ namespace TSXNetCoreClient
             Link.TSXSend(OICLASS + "PropertyName(" +
                 Convert.ToInt32(Which).ToString() + ")");
 
-    
+
         #endregion
 
         public int Count { get => Convert.ToInt32(Link.TSXSend(OICLASS + "Count")); }

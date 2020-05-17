@@ -124,7 +124,7 @@ namespace TSXNetCoreClient
         public string ExposureStatus
         {
             get => Link.TSXSend(TSXCLASS + "ExposureStatus");
-            set => Link.TSXSend(TSXCLASS + "ExposureStatus=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "ExposureStatus=" + "\"" + value + "\"" + ";");
         }
 
         public double ExposureTime
@@ -136,26 +136,26 @@ namespace TSXNetCoreClient
         public string LastImageFileName
         {
             get => Link.TSXSend(TSXCLASS + "LastImageFileName");
-            set => Link.TSXSend(TSXCLASS + "LastImageFileName=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "LastImageFileName=" + "\"" + value + "\"" + ";");
         }
 
         public string AutoSavePath
         {
             get => Link.TSXSend(TSXCLASS + "AutoSavePath");
-            set => Link.TSXSend(TSXCLASS + "AutoSavePath=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "AutoSavePath=" + "\"" + value + "\"" + ";");
         }
 
         public string AutoSavePrefix
 
         {
             get => Link.TSXSend(TSXCLASS + "AutoSavePrefix");
-            set => Link.TSXSend(TSXCLASS + "xAutoSavePrefix=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "xAutoSavePrefix=" + "\"" + value + "\"" + ";");
         }
 
         public ccdsoftImageReduction ImageReduction
         {
             get => (ccdsoftImageReduction)Enum.Parse(typeof(ccdsoftImageReduction), Link.TSXSend("ImageReduction"), true);
-            set => Link.TSXSend(TSXCLASS + "ImageReduction=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "ImageReduction=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public double Delay
@@ -258,14 +258,14 @@ namespace TSXNetCoreClient
         public ccdsoftImageFrame Frame
         {
             get => (ccdsoftImageFrame)Enum.Parse(typeof(ccdsoftImageFrame), Link.TSXSend("Frame"), true);
-            set => Link.TSXSend(TSXCLASS + "Frame=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "Frame=" + Convert.ToInt32(value).ToString() + ";");
         }
 
 
         public ccdsoftSBIGGuiderAntiBloom SBIGGuiderAntiBloom
         {
             get => (ccdsoftSBIGGuiderAntiBloom)Enum.Parse(typeof(ccdsoftSBIGGuiderAntiBloom), Link.TSXSend("SBIGGuiderAntiBloom"), true);
-            set => Link.TSXSend(TSXCLASS + "SBIGGuiderAntiBloom=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "SBIGGuiderAntiBloom=" + Convert.ToInt32(value).ToString() + ";");
         }
 
 
@@ -311,7 +311,7 @@ namespace TSXNetCoreClient
         public ccdsoftMoveVia MoveVia
         {
             get => (ccdsoftMoveVia)Enum.Parse(typeof(ccdsoftMoveVia), Link.TSXSend("MoveVia"), true);
-            set => Link.TSXSend(TSXCLASS + "MoveVia=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "MoveVia=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public int TrackBoxX
@@ -436,14 +436,14 @@ namespace TSXNetCoreClient
 
         public int AutoSaveFocusImages
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + ""));
-            set => Link.TSXSend(TSXCLASS + "=" + value.ToString() + ";");
+            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AutoSaveFocusImages"));
+            set => Link.TSXSend(TSXCLASS + "AutoSaveFocusImages=" + value.ToString() + ";");
         }
 
         public int ScreenShutter
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AutoSaveFocusImages"));
-            set => Link.TSXSend(TSXCLASS + "AutoSaveFocusImages=" + value.ToString() + ";");
+            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "ScreenShutter"));
+            set => Link.TSXSend(TSXCLASS + "ScreenShutter=" + value.ToString() + ";");
         }
 
         public int HighPriorityDownloads
@@ -479,13 +479,13 @@ namespace TSXNetCoreClient
         public ccdsoftAutoSaveAs AutoSaveFileFormat
         {
             get => (ccdsoftAutoSaveAs)Enum.Parse(typeof(ccdsoftAutoSaveAs), Link.TSXSend("AutoSaveFileFormat"), true);
-            set => Link.TSXSend(TSXCLASS + "AutoSaveFileFormat=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "AutoSaveFileFormat=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public ccdsoftFocusGraph FocusGraphType
         {
             get => (ccdsoftFocusGraph)Enum.Parse(typeof(ccdsoftFocusGraph), Link.TSXSend("FocusGraphType"), true);
-            set => Link.TSXSend(TSXCLASS + "FocusGraphType=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "FocusGraphType=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public int AtFocusSamples
@@ -503,13 +503,13 @@ namespace TSXNetCoreClient
         public int AtFocusInitialMoveDirection
         {
             get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AtFocusInitialMoveDirection"));
-            set => Link.TSXSend(TSXCLASS + "=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "AtFocusInitialMoveDirection=" + value.ToString() + ";");
         }
 
         public int AutoContrast
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + ""));
-            set => Link.TSXSend(TSXCLASS + "AtFocusInitialMoveDirection=" + value.ToString() + ";");
+            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AutoContrast"));
+            set => Link.TSXSend(TSXCLASS + "AutoContrast=" + value.ToString() + ";");
         }
 
         public int SBIGFanOn
@@ -533,7 +533,7 @@ namespace TSXNetCoreClient
         public ccdsoftInterface CameraInterface
         {
             get => (ccdsoftInterface)Enum.Parse(typeof(ccdsoftInterface), Link.TSXSend("CameraInterface"), true);
-            set => Link.TSXSend(TSXCLASS + "CameraInterface=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "CameraInterface=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public double DeclinationAtCalibration
@@ -557,7 +557,7 @@ namespace TSXNetCoreClient
         public string ReductionGroupName
         {
             get => Link.TSXSend(TSXCLASS + "ReductionGroupName");
-            set => Link.TSXSend(TSXCLASS + "ReductionGroupName=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "ReductionGroupName=" + "\"" + value + "\"" + ";");
         }
 
         public int lAsynchronous
@@ -575,7 +575,7 @@ namespace TSXNetCoreClient
         public ccdsoftfocTempCompMode focTemperatureCompensationMode
         {
             get => (ccdsoftfocTempCompMode)Enum.Parse(typeof(ccdsoftfocTempCompMode), Link.TSXSend("focTemperatureCompensationMode"), true);
-            set => Link.TSXSend(TSXCLASS + "focTemperatureCompensationMode=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "focTemperatureCompensationMode=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public int focBacklash
@@ -598,7 +598,6 @@ namespace TSXNetCoreClient
         }
 
         public int focSmallStepSize
-
         {
             get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "focSmallStepSize"));
             set => Link.TSXSend(TSXCLASS + "focSmallStepSize=" + value.ToString() + ";");
@@ -624,8 +623,8 @@ namespace TSXNetCoreClient
 
         public string Status
         {
-            get => Link.TSXSend(TSXCLASS + "focTemperature");
-            set => Link.TSXSend(TSXCLASS + "focTemperature=" + value.ToString() + ";");
+            get => Link.TSXSend(TSXCLASS + "Status");
+            set => Link.TSXSend(TSXCLASS + "Status=" + "\"" + value + "\"" + ";");
         }
 
         public int Percent
@@ -637,7 +636,7 @@ namespace TSXNetCoreClient
         public ccdsoftCameraState State
         {
             get => (ccdsoftCameraState)Enum.Parse(typeof(ccdsoftCameraState), Link.TSXSend(TSXCLASS + "State"), true);
-            set => Link.TSXSend(TSXCLASS + "State=" + value.ToString() + ";");
+            set => Link.TSXSend(TSXCLASS + "State=" + Convert.ToInt32(value).ToString() + ";");
         }
 
         public double GuideErrorX
@@ -675,38 +674,38 @@ namespace TSXNetCoreClient
         #region namebasedmethods
 
         public double PropDbl(string lpszPropName) =>
-            Convert.ToDouble(Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "setProbDbl(name);"));
+            Convert.ToDouble(Link.TSXSend(TSXCLASS + "PropDbl(" + "\"" + lpszPropName + "\"" + ");"));
 
         public void setPropDbl(string lpszPropName, double dVal) =>
-            Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "setProbDbl(name," + dVal.ToString() + ");");
+            Link.TSXSend(TSXCLASS + "setProbDbl(" + "\"" + lpszPropName + "\"" + dVal.ToString() + ");");
 
         public int PropLng(string lpszPropName) =>
-             Convert.ToInt32(Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "ProbLng(name);"));
+             Convert.ToInt32(Link.TSXSend(TSXCLASS + "PropLng(" + "\"" + lpszPropName + "\"" + ");"));
 
         public void setPropLng(string lpszPropName, int nVal) =>
-            Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "setProbLng(name," + nVal.ToString() + ");");
+            Link.TSXSend(TSXCLASS + "setPropLng(" + "\"" + lpszPropName + "\"" + nVal.ToString() + ");");
 
         public string PropStr(string lpszPropName) =>
-            Link.TSXSend("var name=\"" + lpszPropName + "\";" + CR + TSXCLASS + "ProbStr(name);");
+            Link.TSXSend(TSXCLASS + "PropStr(" + "\"" + lpszPropName + "\"" + ");");
 
         public void setPropStr(string lpszPropName, string qsVal) =>
-            Link.TSXSend("var name=\""  + lpszPropName + ";" + CR + TSXCLASS + "setProbDbl(name," + qsVal + ");");
+            Link.TSXSend(TSXCLASS + "setPropLng(" + "\"" + lpszPropName + "\"" + "," + "\"" + lpszPropName + "\"" + ");");
 
         #endregion
 
         #region paramprops
 
-        public string szFilterName(int lZeroBasedIndex) =>
-             Link.TSXSend(TSXCLASS + "szFilterName(" + lZeroBasedIndex.ToString() + ");");
+        public string szFilterName(int lZeroBasedIndex) => 
+            Link.TSXSend(TSXCLASS + "szFilterName(" + lZeroBasedIndex.ToString() + ");");
 
         public void setszFilterName(int lZeroBasedIndex, string qsValue) =>
-            Link.TSXSend("var name=\"var name=\"" + qsValue + "\";" + CR + TSXCLASS + "setProbDbl(name," + lZeroBasedIndex.ToString() + ");");
+            Link.TSXSend(TSXCLASS + "setszFilterName(" + lZeroBasedIndex + "," + "\"" + qsValue + "\"" + ");");
 
-        public string szBinModeFromIndex(int lZeroBasedIndex) =>
-                                 Link.TSXSend(TSXCLASS + "szBinModeFromIndex(" + lZeroBasedIndex.ToString() + ");");
+        public string szBinModeFromIndex(int lZeroBasedIndex) => 
+            Link.TSXSend(TSXCLASS + "szBinModeFromIndex(" + lZeroBasedIndex.ToString() + ");");
 
-        public string ReductionGroupFromIndex(int lZeroBasedIndex) =>
-                             Link.TSXSend(TSXCLASS + "ReductionGroupFromIndex(" + lZeroBasedIndex.ToString() + ");");
+        public string ReductionGroupFromIndex(int lZeroBasedIndex) => 
+            Link.TSXSend(TSXCLASS + "ReductionGroupFromIndex(" + lZeroBasedIndex.ToString() + ");");
 
         //public var LRGBArray (int seriesIndex)
 

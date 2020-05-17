@@ -4,9 +4,12 @@ namespace TSXNetCoreClient
 {
     public class Application
     {
-        public string build { get => Link.TSXSend("Application.build"); }
-        public string version { get => Link.TSXSend("Application.version"); }
-        public bool initialized { get => Convert.ToBoolean(Link.TSXSend("Application.initialized")); }
+        const string TSXCLASS = "Application.";
+        const string CR = "\r\n";
+
+        public string build { get => Link.TSXSend(TSXCLASS+"build"); }
+        public string version { get => Link.TSXSend(TSXCLASS + "version"); }
+        public bool initialized { get => Convert.ToBoolean(Link.TSXSend(TSXCLASS + "initialized")); }
 
         public enum operatingSystem
         {
@@ -16,7 +19,7 @@ namespace TSXNetCoreClient
             osLinux
         }
 
-        public Application.operatingSystem AltOperatingSystem { get => (operatingSystem)Enum.Parse(typeof(operatingSystem), Link.TSXSend("Application.operatingSystem"), true); }
+        public Application.operatingSystem AltOperatingSystem { get => (operatingSystem)Enum.Parse(typeof(operatingSystem), Link.TSXSend(TSXCLASS + "operatingSystem"), true); }
 
     }
 }

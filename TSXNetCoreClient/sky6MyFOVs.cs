@@ -10,8 +10,6 @@
 //***************************************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TSXNetCoreClient
 {
@@ -21,6 +19,7 @@ namespace TSXNetCoreClient
         const string CR = "\r\n";
 
         #region methods
+
         public void Property(string FOVIName, sk6MyFOVElement Element, sk6MyFOVProperty Prop) =>
             Link.TSXSend(TSXCLASS + "Property(" +
                 "\"" + FOVIName + "\"" + "," +
@@ -31,7 +30,7 @@ namespace TSXNetCoreClient
             Link.TSXSend(TSXCLASS + "setProperty(" +
                 "\"" + DectorName + "\"" + "," +
                 Convert.ToInt32(Element).ToString() + "," +
-                Convert.ToInt32(property).ToString() + ","+
+                Convert.ToInt32(property).ToString() + "," +
                 vVal.ToString() + ")");
 
         public void setProperty(string DectorName, sk6MyFOVElement Element, sk6MyFOVProperty Prop, int vVal) =>
@@ -41,16 +40,14 @@ namespace TSXNetCoreClient
                 Convert.ToInt32(Prop).ToString() + "," +
                 vVal.ToString() + ")");
 
-       public void setProperty(string DectorName, sk6MyFOVElement Element, sk6MyFOVProperty Prop, string vVal) =>
-            Link.TSXSend(TSXCLASS + "setProperty(" +
-                "\"" + DectorName + "\"" + "," +
-                Convert.ToInt32(Element).ToString() + "," +
-                Convert.ToInt32(Prop).ToString() + ","+
-                "\"" + vVal +"\"" + ")"); 
+        public void setProperty(string DectorName, sk6MyFOVElement Element, sk6MyFOVProperty Prop, string vVal) =>
+             Link.TSXSend(TSXCLASS + "setProperty(" +
+                 "\"" + DectorName + "\"" + "," +
+                 Convert.ToInt32(Element).ToString() + "," +
+                 Convert.ToInt32(Prop).ToString() + "," +
+                 "\"" + vVal + "\"" + ")");
 
-       public void Name(int Index) =>
-            Link.TSXSend(TSXCLASS + "Name(" +
-                Index.ToString() + ")");
+        public void Name(int Index) => Link.TSXSend(TSXCLASS + "Name(" + Index.ToString() + ")");
 
         public void Fill(sk6MyFOVReferenceFrame rf, sk6MyFOVShape shape, sk6MyFOVElement elem) =>
             Link.TSXSend(TSXCLASS + "Fill(" +
@@ -61,7 +58,7 @@ namespace TSXNetCoreClient
         #endregion
 
         #region properties
-               
+
         #endregion
 
 

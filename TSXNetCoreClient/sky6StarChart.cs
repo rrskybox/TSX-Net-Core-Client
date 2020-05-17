@@ -47,21 +47,21 @@ namespace TSXNetCoreClient
 
         public void DocumentProperty(Sk6DocumentProperty Which) =>
             Link.TSXSend(TSXCLASS + "DocumentProperty(" +
-                ((int)Which).ToString() + ")");
+                Convert.ToInt32(Which).ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, double vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                ((int)Which).ToString() + "," +
+                Convert.ToInt32(Which).ToString() + "," +
                 vNewVal.ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, int vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                ((int)Which).ToString() + "," +
+                Convert.ToInt32(Which).ToString() + "," +
                 vNewVal.ToString() + ")");
 
         public void SetDocumentProperty(Sk6DocumentProperty Which, string vNewVal) =>
             Link.TSXSend(TSXCLASS + "SetDocumentProperty(" +
-                ((int)(object)Which).ToString() + "," +
+                Convert.ToInt32(Which).ToString() + "," +
                 vNewVal + ")");
 
         public void DisplayProperty(Sk6DisplayPropertyObjectType nIndex, Sk6DisplayPropertySkyMode Mode, Sk6DisplayProperty Prop, Sk6DisplayPropertyItem Item) =>

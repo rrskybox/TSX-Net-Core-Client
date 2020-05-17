@@ -9,10 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace TSXNetCoreClient
 {
     public class SelectedHardware
@@ -32,7 +28,7 @@ namespace TSXNetCoreClient
 
         public string domeManufacturer { get => Link.TSXSend(TSXCLASS + "domeManufacturer"); }
 
-        public string filterWheelModel { get => Link.TSXSend(TSXCLASS + "imageScfilterWheelModelale"); }
+        public string filterWheelModel { get => Link.TSXSend(TSXCLASS + "filterWheelModel"); }
 
         public string filterWheelManufacturer { get => Link.TSXSend(TSXCLASS + "filterWheelManufacturer"); }
 

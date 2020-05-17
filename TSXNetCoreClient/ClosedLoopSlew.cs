@@ -28,7 +28,7 @@ namespace TSXNetCoreClient
 
         #endregion
 
-            #region properties
+        #region properties
 
         public int asynchronous
         {

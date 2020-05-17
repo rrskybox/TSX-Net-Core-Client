@@ -24,7 +24,7 @@ namespace TSXNetCoreClient
         public string pathToFITS
         {
             get => Link.TSXSend(TSXCLASS + "pathToFITS");
-            set => Link.TSXSend(TSXCLASS + "pathToFits=" + value);
+            set => Link.TSXSend(TSXCLASS + "pathToFits=" + "\"" + value + "\"");
         }
 
         public double scale

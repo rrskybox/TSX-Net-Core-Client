@@ -30,7 +30,7 @@ namespace TSXNetCoreClient
         public string Path
         {
             get => Link.TSXSend(TSXCLASS + "Path");
-            set => Link.TSXSend(TSXCLASS + "Path=" + "\"" + value.Replace('\\','/') + "\"");
+            set => Link.TSXSend(TSXCLASS + "Path=" + "\"" + value.Replace('\\', '/') + "\"");
         }
 
         //Run Query in the COM library will return an class object for sky6ObjectInformation

@@ -27,7 +27,7 @@ namespace TSXNetCoreClient
         public void Connect() => Link.TSXSend(TSXCLASS + "Connect()");
 
         public void DoCommand(int lParam, string qsParam) =>
-            Link.TSXSend("var name=\"" + qsParam + "\";" + CR + TSXCLASS + "DoCommand(" + lParam.ToString() + ",name);");
+            Link.TSXSend(TSXCLASS + "DoCommand(" + lParam.ToString() + "\"" + qsParam + "\"" + ");");
 
         public void Disconnect() => Link.TSXSend(TSXCLASS + "Disconnect()");
 
@@ -46,7 +46,7 @@ namespace TSXNetCoreClient
         public void GetRaDec() => Link.TSXSend(TSXCLASS + "GetRaDec()");
 
         public void Jog(double dJogAmtInMins, string lpszDirection) =>
-            Link.TSXSend("var name=\"" + lpszDirection + "\";" + CR + TSXCLASS + "Jog(" + dJogAmtInMins.ToString() + ",name);");
+            Link.TSXSend(TSXCLASS + "Jog(" + dJogAmtInMins.ToString() + "\"" + lpszDirection + "\"" + ");");
 
         public void SetParkPosition() => Link.TSXSend(TSXCLASS + "SetParkPosition()");
 
@@ -54,13 +54,16 @@ namespace TSXNetCoreClient
                         Link.TSXSend(TSXCLASS + "SetTracking(" + lOn.ToString() + "," + lIgnoreRates.ToString() + dRaRate.ToString() + dDecRate.ToString() + ")");
 
         public void SlewToAzAlt(double az, double alt, string name) =>
-             Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToAzAlt(" + az.ToString() + "," + alt.ToString() + "," + "name" + ")");
+            //    Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToAzAlt(" + az.ToString() + "," + alt.ToString() + "," + "name" + ")");
+            Link.TSXSend(TSXCLASS + "SlewToAzAlt(" + az.ToString() + "," + alt.ToString() + "," + "\"" + name + "\"" + ")");
 
         public void SlewToRaDec(double ra, double dec, string name) =>
-           Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToRaDec(" + ra.ToString() + "," + dec.ToString() + "," + "name" + ")");
+            //Link.TSXSend("var name=\"" + name + "\";" + CR + TSXCLASS + "SlewToRaDec(" + ra.ToString() + "," + dec.ToString() + "," + "name" + ")");
+            Link.TSXSend(TSXCLASS + "SlewToRaDec(" + ra.ToString() + "," + dec.ToString() + "," + "\"" + name + "\"" + ")");
 
         public void Sync(double dRa, double dDec, string lpszObjectName) =>
-            Link.TSXSend("var name=\"" + lpszObjectName + "\";" + CR + TSXCLASS + "Sync(" + dRa.ToString() + dDec.ToString() + ",name);");
+            //.TSXSend("var name=\"" + lpszObjectName + "\";" + CR + TSXCLASS + "Sync(" + dRa.ToString() + dDec.ToString() + ",name);");
+            Link.TSXSend(TSXCLASS + "Sync(" + dRa.ToString() + "," + dDec.ToString() + "," + "\"" + lpszObjectName + "\"" + ")");
 
         public void Park() => Link.TSXSend(TSXCLASS + "Park()");
 
@@ -76,7 +79,6 @@ namespace TSXNetCoreClient
 
         #region properties
 
-        #endregion
         public double dAz { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAz")); }
 
         public double dAlt { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAlt")); }
@@ -106,6 +108,6 @@ namespace TSXNetCoreClient
         public int IsTracking { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsTracking")); }
 
         public string DoCommandOutput { get => Link.TSXSend(TSXCLASS + "DoCommandOutput"); }
-
+        #endregion
     }
 }

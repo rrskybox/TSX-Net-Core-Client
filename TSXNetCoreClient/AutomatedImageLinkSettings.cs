@@ -10,8 +10,6 @@
 //***************************************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TSXNetCoreClient
 {
@@ -55,9 +53,9 @@ namespace TSXNetCoreClient
         public string filterNameAILS  //Probably read-only, but doc doesn't say
         {
             get => Link.TSXSend(TSXCLASS + "filterNameAILS");
-            set => Link.TSXSend(TSXCLASS + "\""+"filterNameAILS=" + "\"" + ";");
+            set => Link.TSXSend(TSXCLASS + "\"" + "filterNameAILS=" + "\"" + ";");
         }
 
-                #endregion
+        #endregion
     }
 }
