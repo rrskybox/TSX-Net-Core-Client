@@ -239,18 +239,39 @@ namespace TSXNetCoreClient
         cdHLNone, cdHLWeak, cdHLMedium, cdHLStrong,
         cdHLVeryStrong, cdHLAdaptive, cdHLPlanetary
     }
-    enum SkXUtilsSexagesimalFormat
+    public enum SkXUtilsSexagesimalFormat
     {
         FMT_DMS = 0, FMT_DMS_SIGN = 1, FMT_DMS_NS = 2, FMT_DMS_EW = 3,
         FMT_HMS = 4, FMT_TIME = 5, FMT_DMS_MINIM = 6, FMT_COMMAS = 7,
         FMT_NOCOMMAS = 8
     }
 
-    enum SkXUtilsSexagesimalSigFigs
+    public enum SkXUtilsSexagesimalSigFigs
     {
         SSF_ONE = 0, SSF_TWO = 1, SSF_THREE = 2, SSF_FOUR = 3,
         SSF_FIVE = 4, SSF_SIX = 5, SSF_SEVEN = 6, SSF_EIGHT = 7
     }
+
+    public enum sk6MyFOVProperty
+    {
+        sk6MyFOVProp_Visible = 0, sk6MyFOVProp_PositionAngleDegrees = 1, sk6MyFOVProp_ReferenceFrame = 2, sk6MyFOVProp_OffsetEastWestArcMinutes = 3,
+        sk6MyFOVProp_OffsetNorthSouthArcMinutes = 4, sk6MyFOVProp_Scale = 5, sk6MyFOVProp_Elem_Description = 6, sk6MyFOVProp_Elem_Shape = 7,
+        sk6MyFOVProp_Elem_XSize = 8, sk6MyFOVProp_Elem_YSize = 9, sk6MyFOVProp_Elem_XOffset = 10, sk6MyFOVProp_Elem_YOffset = 11,
+        sk6MyFOVProp_Elem_XPixels = 12, sk6MyFOVProp_Elem_YPixels = 13
+    }
+
+    public enum sk6MyFOVReferenceFrame { sk6MyFOVRefFrame_Screen = 0, sk6MyFOVRefFrame_Equatorial = 1, sk6MyFOVRefFrame_Telescope = 2, sk6MyFOVRefFrame_TelescopeMask = 3 }
+
+    public enum sk6MyFOVElement
+    {
+        sk6MyFOVElement_1 = 0, sk6MyFOVElement_2 = 1, sk6MyFOVElement_3 = 2, sk6MyFOVElement_4 = 3,
+        sk6MyFOVElement_5 = 4, sk6MyFOVElement_6 = 5, sk6MyFOVElement_7 = 6, sk6MyFOVElement_8 = 7,
+        sk6MyFOVElement_9 = 8, sk6MyFOVElement_10 = 9, sk6MyFOVElement_11 = 10, sk6MyFOVElement_12 = 11,
+        sk6MyFOVElement_13 = 12, sk6MyFOVElement_14 = 13, sk6MyFOVElement_15 = 14, sk6MyFOVElement_16 = 15,
+        sk6MyFOVElement_17 = 16, sk6MyFOVElement_18 = 17, sk6MyFOVElement_19 = 18, sk6MyFOVElement_20 = 19
+    }
+
+    public enum sk6MyFOVShape { sk6MyFOVShape_Circle = 0, sk6MyFOVShape_Rectangle = 1, sk6MyFOVShape_Marker = 2, sk6MyFOVShape_Telrad = 3 }
 
     #endregion
 }

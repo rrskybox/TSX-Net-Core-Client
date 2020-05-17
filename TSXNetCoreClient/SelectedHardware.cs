@@ -42,13 +42,11 @@ namespace TSXNetCoreClient
 
         public string mountModel { get => Link.TSXSend(TSXCLASS + "mountModel"); }
 
-
         public string mountManufacturer { get => Link.TSXSend(TSXCLASS + "mountManufacturer"); }
 
         public string opticalTubeAssemblyModel { get => Link.TSXSend(TSXCLASS + "opticalTubeAssemblyModel"); }
 
         public string opticalTubeAssemblyManufacturer { get => Link.TSXSend(TSXCLASS + "opticalTubeAssemblyManufacturer"); }
-
 
         public string rotatorModel { get => Link.TSXSend(TSXCLASS + "rotatorModel"); }
 
@@ -85,7 +83,6 @@ namespace TSXNetCoreClient
         public string autoguiderVideoDeviceModel { get => Link.TSXSend(TSXCLASS + "autoguiderVideoDeviceModel"); }
 
         public string autoguiderVideoDeviceManufacturer { get => Link.TSXSend(TSXCLASS + "autoguiderVideoDeviceManufacturer"); }
-
 
     }
 }
