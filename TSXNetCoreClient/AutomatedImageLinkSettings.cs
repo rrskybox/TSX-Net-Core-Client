@@ -20,7 +20,7 @@ namespace TSXNetCoreClient
         const string TSXCLASS = "AutomatedImageLinkSettings.";
         const string CR = "\r\n";
 
-        #region methods
+        #region properties
 
         public double imageScale
         {
