@@ -29,7 +29,7 @@ namespace TSXNetCoreClient
                command + ";" + CR + CR +
                 "/* Socket End Packet */";
 
-            Console.WriteLine("Socket: " + CR + fullMessage);
+            //Console.WriteLine("Socket: " + CR + fullMessage);
             // Establish the remote endpoint  
             // for the socket.
             IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
@@ -49,10 +49,11 @@ namespace TSXNetCoreClient
 
                 // We print EndPoint information  
                 // that we are connected 
-                ////Console.WriteLine("Socket: Socket connected to -> {0} ", sender.RemoteEndPoint.ToString());
+                //Console.WriteLine("Socket: Socket connected to -> {0} ", sender.RemoteEndPoint.ToString());
 
                 // Creation of messagge that 
                 // we will send to Server 
+                //Console.WriteLine("Socket: Message to Server -> " + fullMessage);
                 byte[] messageSent = Encoding.ASCII.GetBytes(fullMessage);
                 int byteSent = sender.Send(messageSent);
 
@@ -66,7 +67,7 @@ namespace TSXNetCoreClient
                 // convert them to string 
                 int byteRecv = sender.Receive(messageReceived);
                 tsxIn = Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
-                ////Console.WriteLine("Socket: Message from Server -> " + tsxIn);
+                //Console.WriteLine("Socket: Message from Server -> " + tsxIn);
                 tsxIn = (tsxIn.Split('|'))[0];
 
                 // Close Socket using  

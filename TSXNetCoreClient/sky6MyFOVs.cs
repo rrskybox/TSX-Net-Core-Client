@@ -59,6 +59,37 @@ namespace TSXNetCoreClient
 
         #region properties
 
+        public int Count { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Count")); }
+
+        public string OutString { get => Link.TSXSend(TSXCLASS + "OutString"); }
+
+        public object OutVar
+        {
+            get
+            {
+                string sData = Link.TSXSend(TSXCLASS + "OutVar");
+                try
+                {
+                    double result = Double.Parse(sData);
+                    return result;
+                }
+                catch
+                {
+                    try
+                    {
+                        int result = Int32.Parse(sData);
+                        return result;
+                    }
+                    catch
+                    {
+                        string result = sData;
+                        return result;
+
+                    }
+                }
+            }
+        }
+
         #endregion
 
 

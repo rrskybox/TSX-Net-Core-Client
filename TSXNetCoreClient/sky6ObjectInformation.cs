@@ -19,7 +19,8 @@ namespace TSXNetCoreClient
         const string TSXCLASS = "sky6ObjectInformation.";
 
         //See notes in sky6DataWizard on the tsxoi object
-        const string OICLASS = "tsxoi.";
+        //const string OICLASS = "tsxoi.";
+        const string OICLASS = "sky6ObjectInformation.";
         const string CR = "\r\n";
 
         #region enums
