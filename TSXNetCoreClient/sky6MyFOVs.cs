@@ -59,7 +59,7 @@ namespace TSXNetCoreClient
 
         #region properties
 
-        public int Count { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Count")); }
+        public int Count { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Count")); }
 
         public string OutString { get => Link.TSXSend(TSXCLASS + "OutString"); }
 

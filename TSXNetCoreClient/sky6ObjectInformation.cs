@@ -16,11 +16,11 @@ namespace TSXNetCoreClient
     public class sky6ObjectInformation
     {
 
-        const string TSXCLASS = "sky6ObjectInformation.";
+       // const string TSXCLASS = "sky6ObjectInformation.";
 
         //See notes in sky6DataWizard on the tsxoi object
-        //const string OICLASS = "tsxoi.";
-        const string OICLASS = "sky6ObjectInformation.";
+       //const string OICLASS = "tsxoi.";
+        //const string OICLASS = "sky6ObjectInformation.";
         const string CR = "\r\n";
 
         #region enums
@@ -31,26 +31,26 @@ namespace TSXNetCoreClient
         #region methods
 
         public void Property(Sk6ObjectInformationProperty Which) =>
-            Link.TSXSend(OICLASS + "Property(" +
+            Link.TSXSend(TSXNetCoreClient.LastObjectInformation  + "Property(" +
                 Convert.ToInt32(Which).ToString() + ")");
 
         public void PropertyApplies(Sk6ObjectInformationProperty Which) =>
-            Link.TSXSend(OICLASS + "PropertyApplies(" +
+            Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "PropertyApplies(" +
                 Convert.ToInt32(Which).ToString() + ")");
 
         public void PropertyName(Sk6ObjectInformationProperty Which) =>
-            Link.TSXSend(OICLASS + "PropertyName(" +
+            Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "PropertyName(" +
                 Convert.ToInt32(Which).ToString() + ")");
 
 
         #endregion
 
-        public int Count { get => Convert.ToInt32(Link.TSXSend(OICLASS + "Count")); }
+        public int Count { get => ReliableConvert.ToInt32(Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "Count")); }
 
         public int Index
         {
-            get => Convert.ToInt32(Link.TSXSend(OICLASS + "Index"));
-            set => Link.TSXSend(OICLASS + "Index=" + value.ToString());
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "Index"));
+            set => Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "Index=" + value.ToString());
         }
 
 
@@ -63,7 +63,7 @@ namespace TSXNetCoreClient
         {
             get
             {
-                string sData = Link.TSXSend(OICLASS + "ObjInfoPropOut");
+                string sData = Link.TSXSend(TSXNetCoreClient.LastObjectInformation + "ObjInfoPropOut");
                 try
                 {
                     double result = Double.Parse(sData);

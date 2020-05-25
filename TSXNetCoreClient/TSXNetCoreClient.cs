@@ -9,9 +9,46 @@
 // 
 //***************************************************************************************
 
+using System;
+
 namespace TSXNetCoreClient
 {
-    public class TSXNetCoreClient { }
+    #region Reliable Conversions
+    //Set of filters for incoming tsx strings that map string to conversions catching errors
+    public static class ReliableConvert
+    {
+        public static string ToString(string tsxReturn)
+        {
+            //No catch, for now
+            return tsxReturn;
+        }
+
+        public static int ToInt32(string tsxReturn)
+        {
+            try { return Convert.ToInt32(tsxReturn); }
+            catch { return 0; }
+        }
+        public static double ToDouble(string tsxReturn)
+        {
+            try { return Convert.ToDouble(tsxReturn); }
+            catch { return 0.0; }
+        }
+
+        public static bool ToBoolean(string tsxReturn)
+        {
+            try { return Convert.ToBoolean(tsxReturn); }
+            catch { return false; }
+        }
+    }
+
+    #endregion
+
+
+    public class TSXNetCoreClient 
+    {
+        public static string LastObjectInformation { get; set; } = "sky6InformationObject.";
+ 
+            }
 
     #region enums
 

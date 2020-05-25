@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class sky6RASCOMTele
@@ -71,7 +69,7 @@ namespace TSXNetCoreClient
 
         public void ParkAndDoNotDisconnect() => Link.TSXSend(TSXCLASS + "ParkAndDoNotDisconnect()");
 
-        public bool IsParked() => Convert.ToBoolean(Link.TSXSend(TSXCLASS + "IsParked()"));
+        public bool IsParked() => ReliableConvert.ToBoolean(Link.TSXSend(TSXCLASS + "IsParked()"));
 
         public void ConnectAndDoNotUnpark() => Link.TSXSend(TSXCLASS + "ConnectAndDoNotUnpark()");
 
@@ -79,33 +77,33 @@ namespace TSXNetCoreClient
 
         #region properties
 
-        public double dAz { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAz")); }
+        public double dAz { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dAz")); }
 
-        public double dAlt { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dAlt")); }
+        public double dAlt { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dAlt")); }
 
-        public double dRa { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dRa")); }
+        public double dRa { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dRa")); }
 
-        public double dDec { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dDec")); }
+        public double dDec { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dDec")); }
 
         public int Asynchronous
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Asynchronous"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Asynchronous"));
             set => Link.TSXSend(TSXCLASS + "Asynchronous=" + value.ToString() + ";");
         }
 
-        public double dDecTrackingRate { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dDecTrackingRate")); }
+        public double dDecTrackingRate { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dDecTrackingRate")); }
 
-        public double dRaTrackingRate { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dRaTrackingRate")); }
+        public double dRaTrackingRate { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dRaTrackingRate")); }
 
-        public double LastSlewError { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "LastSlewError")); }
+        public double LastSlewError { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "LastSlewError")); }
 
-        public int IsConnected { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected")); }
+        public int IsConnected { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected")); }
 
-        public int IsInLimit { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsInLimit")); }
+        public int IsInLimit { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsInLimit")); }
 
-        public int IsSlewComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsSlewComplete")); }
+        public int IsSlewComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsSlewComplete")); }
 
-        public int IsTracking { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsTracking")); }
+        public int IsTracking { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsTracking")); }
 
         public string DoCommandOutput { get => Link.TSXSend(TSXCLASS + "DoCommandOutput"); }
         #endregion

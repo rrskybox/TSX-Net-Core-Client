@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class ImageLink
@@ -34,13 +32,13 @@ namespace TSXNetCoreClient
 
         public double scale
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "scale"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "scale"));
             set => Link.TSXSend(TSXCLASS + "scale=" + value.ToString());
         }
 
         public bool unknownScale
         {
-            get => Convert.ToBoolean(Link.TSXSend(TSXCLASS + "scale"));
+            get => ReliableConvert.ToBoolean(Link.TSXSend(TSXCLASS + "scale"));
             set => Link.TSXSend(TSXCLASS + "scale=" + value.ToString());
         }
 

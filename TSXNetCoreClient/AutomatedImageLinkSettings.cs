@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class AutomatedImageLinkSettings
@@ -22,31 +20,31 @@ namespace TSXNetCoreClient
 
         public double imageScale
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "imageScale"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "imageScale"));
             set => Link.TSXSend(TSXCLASS + "imageScale=" + value.ToString() + ";");
         }
 
         public double positionAngle  //Probaly read only, but the doc doesn't say
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "positionAngle"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "positionAngle"));
             set => Link.TSXSend(TSXCLASS + "positionAngle=" + value.ToString() + ";");
         }
 
         public double exposureTimeAILS
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "exposureTimeAILS"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "exposureTimeAILS"));
             set => Link.TSXSend(TSXCLASS + "exposureTimeAILS=" + value.ToString() + ";");
         }
 
         public int fovsToSearch
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "fovsToSearch"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "fovsToSearch"));
             set => Link.TSXSend(TSXCLASS + "fovsToSearch=" + value.ToString() + ";");
         }
 
         public int retries
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "retries"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "retries"));
             set => Link.TSXSend(TSXCLASS + "retries=" + value.ToString() + ";");
         }
 

@@ -15,32 +15,32 @@ namespace TSXNetCoreClient
         #endregion
 
         #region methods
-        int Open() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Open()"));
+        int Open() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Open()"));
 
-        public int Save() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Save()"));
+        public int Save() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Save()"));
 
-        public int Close() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Close()"));
+        public int Close() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Close()"));
 
-        public int AttachToActive() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActive()"));
+        public int AttachToActive() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActive()"));
 
-        public int ApplyBackgroundRange() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "ApplyBackgroundRange()"));
+        public int ApplyBackgroundRange() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "ApplyBackgroundRange()"));
 
         public int New(int Width, int Height, int BitsPerPixel) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "New(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "New(" +
                 Width.ToString() + "," +
                 Height.ToString() + "," +
                 BitsPerPixel.ToString() + ")"));
 
         public int Zoom(int Numerator, int Denominator) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "Zoom(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Zoom(" +
                 Numerator.ToString() + "," +
                 Denominator.ToString() + ")"));
 
-        public int SetActive() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "SetActive()"));
+        public int SetActive() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "SetActive()"));
 
-        public int AttachToActiveImager() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveImager()"));
+        public int AttachToActiveImager() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveImager()"));
 
-        public int AttachToActiveAutoguider() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveAutoguider()"));
+        public int AttachToActiveAutoguider() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "AttachToActiveAutoguider()"));
 
         public object FITSKeyword(string qsKeyword)
         {
@@ -72,37 +72,37 @@ namespace TSXNetCoreClient
         }
 
         public void setFITSKeyword(string qsKeyword, string value) =>
-                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
+                   ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                        "\"" + qsKeyword + "\"" + "," +
                        "\"" + value + "\"" + ")"));
 
         public void setFITSKeyword(string qsKeyword, int value) =>
-                   Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
+                   ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                        "\"" + qsKeyword + "\"" + "," +
-                        value.ToString() +  ")"));
+                        value.ToString() + ")"));
 
         public void setFITSKeyword(string qsKeyword, double value) =>
-                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
+                    ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "setFITSKeyword(" +
                         "\"" + qsKeyword + "\"" + "," +
                        value.ToString() + ")"));
 
         public int InsertWCS(int RedoExistingSolution) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "InsertWCS(" +
                 RedoExistingSolution.ToString() + ")"));
 
         public int XYToRADec(double X, double Y) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADec(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADec(" +
                 X.ToString() + "," +
-                Y.ToString() +  ")"));
+                Y.ToString() + ")"));
 
         public int RADecToXY(double RA, double Dec) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "RADecToXY(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "RADecToXY(" +
                 RA.ToString() + "," +
                 Dec.ToString() + ")"));
 
         public double[] WCSArray(int WCSIndex) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "WCSArray(" + WCSIndex.ToString() + ")")).Split(','), Double.Parse);
 
-        public int ShowInventory() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "ShowInventory()"));
+        public int ShowInventory() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "ShowInventory()"));
 
         public double[] InventoryArray(int InventoryIndex)
         {
@@ -120,60 +120,60 @@ namespace TSXNetCoreClient
         // //public int MakeComparisonStarChart(QString &pVal)
 
         public int AutoContrast(int Method, int Background, int Highlight) =>
-                    Convert.ToInt32(Link.TSXSend(TSXCLASS + "AutoContrast(" +
+                    ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "AutoContrast(" +
                         Method.ToString() + "," +
                         Background.ToString() + "," +
                         Highlight.ToString() + ")"));
 
         public int SaveAs(int Type, int Param = 0) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "SaveAs(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "SaveAs(" +
                 Type.ToString() + "," +
                 Param.ToString() + ")"));
 
         public int Resize(int NewWidth, int NewHeight) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "Resize(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Resize(" +
                 NewWidth.ToString() + "," +
                 NewHeight.ToString() + ")"));
 
         public int RepairColumn(int ColumnToFix) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "RepairColumn(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "RepairColumn(" +
                 ColumnToFix.ToString() + ")"));
 
         public int RemoveColdPixels(int ColdCriteria, int Repaired) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "RemoveColdPixels(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "RemoveColdPixels(" +
                 ColdCriteria.ToString() + "," +
                 Repaired.ToString() + ")"));
 
         public int RemoveHotPixels(int HotCriteria, int pRepaired) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "RemoveHotPixels(" +
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "RemoveHotPixels(" +
                 HotCriteria.ToString() + "," +
                 pRepaired.ToString() + ")"));
 
-        public double averagePixelValue() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "averagePixelValue()"));
+        public double averagePixelValue() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "averagePixelValue()"));
 
         public double[] scanLine(int i) => Array.ConvertAll((Link.TSXSend(TSXCLASS + "scanLine(" + i.ToString() + ")")).Split(','), double.Parse);
 
-        public double XYToRADecResultRA() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADecResultRA()"));
+        public double XYToRADecResultRA() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "XYToRADecResultRA()"));
 
-        public double XYToRADecResultDec() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "XYToRADecResultDec()"));
+        public double XYToRADecResultDec() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "XYToRADecResultDec()"));
 
-        public double RADecToXYResultX() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "RADecToXYResultX()"));
+        public double RADecToXYResultX() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "RADecToXYResultX()"));
 
-        public double RADecToXYResultY() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "RADecToXYResultY()"));
+        public double RADecToXYResultY() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "RADecToXYResultY()"));
 
-        public double mousePressPixelX() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "mousePressPixelX()"));
+        public double mousePressPixelX() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "mousePressPixelX()"));
 
-        public double mousePressPixelY() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "mousePressPixelY()"));
+        public double mousePressPixelY() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "mousePressPixelY()"));
 
-        public double mouseDoubleClickPixelX() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "mouseDoubleClickPixelX()"));
+        public double mouseDoubleClickPixelX() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "mouseDoubleClickPixelX()"));
 
-        public double mouseDoubleClickPixelY() => Convert.ToDouble(Link.TSXSend(TSXCLASS + "mouseDoubleClickPixelY()"));
+        public double mouseDoubleClickPixelY() => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "mouseDoubleClickPixelY()"));
 
         #endregion
 
         #region properties
 
-        public double JulianDay { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "JulianDay")); }
+        public double JulianDay { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "JulianDay")); }
 
         public string Path
         {
@@ -183,63 +183,63 @@ namespace TSXNetCoreClient
 
         public int DetachOnClose
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "DetachOnClose"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "DetachOnClose"));
             set => Link.TSXSend(TSXCLASS + "DetachOnClose=" + value.ToString() + ";");
         }
 
         public int Visible
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Visible"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Visible"));
             set => Link.TSXSend(TSXCLASS + "Visible=" + value.ToString() + ";");
         }
 
-        public int DataPtr { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "DataPtr")); }
+        public int DataPtr { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "DataPtr")); }
 
         //public QVariant DataArray
 
-        public int WidthInPixels { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WidthInPixels")); }
+        public int WidthInPixels { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WidthInPixels")); }
 
-        public int HeightInPixels { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "HeightInPixels")); }
+        public int HeightInPixels { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "HeightInPixels")); }
 
         public int ModifiedFlag
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "ModifiedFlag"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "ModifiedFlag"));
             set => Link.TSXSend(TSXCLASS + "ModifiedFlag=" + value.ToString() + ";");
         }
 
         public int Background
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Background"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Background"));
             set => Link.TSXSend(TSXCLASS + "Background=" + value.ToString() + ";");
         }
 
         public int Range
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "Range"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "Range"));
             set => Link.TSXSend(TSXCLASS + "Range=" + value.ToString() + ";");
         }
 
         public int WindowTop
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WindowTop"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WindowTop"));
             set => Link.TSXSend(TSXCLASS + "WindowTop=" + value.ToString() + ";");
         }
 
         public int WindowLeft
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WindowLeft"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WindowLeft"));
             set => Link.TSXSend(TSXCLASS + "WindowLeft=" + value.ToString() + ";");
         }
 
-        public int WindowRight { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WindowRight")); }
+        public int WindowRight { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WindowRight")); }
 
-        public int WindowBottom { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WindowBottom")); }
+        public int WindowBottom { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WindowBottom")); }
 
-        public double NorthAngle { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "NorthAngle")); }
+        public double NorthAngle { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "NorthAngle")); }
 
         public double ScaleInArcsecondsPerPixel
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "ScaleInArcsecondsPerPixel"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "ScaleInArcsecondsPerPixel"));
             set => Link.TSXSend(TSXCLASS + "ScaleInArcsecondsPerPixel=" + value.ToString() + ";");
         }
 

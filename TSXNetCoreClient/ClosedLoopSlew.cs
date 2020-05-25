@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class ClosedLoopSlew
@@ -22,7 +20,7 @@ namespace TSXNetCoreClient
 
         public int exec()
         {
-            try { return Convert.ToInt32(Link.TSXSend(TSXCLASS + "exec()")); }
+            try { return ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "exec()")); }
             catch { return -1; }
         }
 
@@ -32,13 +30,13 @@ namespace TSXNetCoreClient
 
         public int asynchronous
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "asynchronous"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "asynchronous"));
             set => Link.TSXSend(TSXCLASS + "asynchronous=" + value.ToString() + ";");
         }
 
-        public double lastError { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "lastError")); }
+        public double lastError { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "lastError")); }
 
-        public int isClosedLoopSlewComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "isClosedLoopSlewComplete")); }
+        public int isClosedLoopSlewComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "isClosedLoopSlewComplete")); }
 
         #endregion
     }

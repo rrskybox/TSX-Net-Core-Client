@@ -60,7 +60,7 @@ namespace TSXNetCoreClient
                 // Data buffer 
                 byte[] messageReceived = new byte[1024];
 
-                // We receive the messagge using  
+                // We receive the message using  
                 // the method Receive(). This  
                 // method returns number of bytes 
                 // received, that we'll use to  

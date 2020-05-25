@@ -54,40 +54,40 @@ namespace TSXNetCoreClient
 
         public SlitState slitState() => (SlitState)Enum.Parse(typeof(SlitState), Link.TSXSend("slitState"), true);
 
-        public int lastError() => Convert.ToInt32(Link.TSXSend(TSXCLASS + "lastError()"));
+        public int lastError() => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "lastError()"));
 
         #endregion
 
         #region properties
         public int IsConnected
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected"));
-            set => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected=" + value.ToString() + ";"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected"));
+            set => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected=" + value.ToString() + ";"));
         }
 
         public int IsCoupled
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsCoupled"));
-            set => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsCoupled=" + value.ToString() + ";"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsCoupled"));
+            set => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsCoupled=" + value.ToString() + ";"));
         }
 
-        public double dAz { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "dAz")); }
+        public double dAz { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "dAz")); }
 
-        public double dEl { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "dEl")); }
+        public double dEl { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "dEl")); }
 
-        public int IsGotoComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsGotoComplete")); }
+        public int IsGotoComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsGotoComplete")); }
 
-        public int IsOpenComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsOpenComplete")); }
-
-
-        public int IsCloseComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsCloseComplete")); }
-
-        public int IsParkComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsParkComplete")); }
+        public int IsOpenComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsOpenComplete")); }
 
 
-        public int IsUnparkComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsUnparkComplete")); }
+        public int IsCloseComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsCloseComplete")); }
 
-        public int IsFindHomeComplete { get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsFindHomeComplete")); }
+        public int IsParkComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsParkComplete")); }
+
+
+        public int IsUnparkComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsUnparkComplete")); }
+
+        public int IsFindHomeComplete { get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsFindHomeComplete")); }
 
         #endregion
 

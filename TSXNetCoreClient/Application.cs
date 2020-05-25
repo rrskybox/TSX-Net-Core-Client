@@ -7,9 +7,9 @@ namespace TSXNetCoreClient
         const string TSXCLASS = "Application.";
         const string CR = "\r\n";
 
-        public string build { get => Link.TSXSend(TSXCLASS+"build"); }
+        public string build { get => Link.TSXSend(TSXCLASS + "build"); }
         public string version { get => Link.TSXSend(TSXCLASS + "version"); }
-        public bool initialized { get => Convert.ToBoolean(Link.TSXSend(TSXCLASS + "initialized")); }
+        public bool initialized { get => ReliableConvert.ToBoolean(Link.TSXSend(TSXCLASS + "initialized")); }
 
         public enum operatingSystem
         {

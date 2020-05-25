@@ -41,11 +41,13 @@ namespace TSXNetCoreClient
         //Every subsequent object information call will reference this "txsoi" object to the
         //TSX javascript engine transparently.
         //
+
         public sky6ObjectInformation RunQuery
         {
             get
             {
                 string rqReturn = Link.TSXSend("var tsxoi = " + TSXCLASS + "RunQuery");
+                TSXNetCoreClient.LastObjectInformation = "tsxoi.";
                 return new sky6ObjectInformation();
             }
         }

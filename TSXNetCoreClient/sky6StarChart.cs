@@ -20,19 +20,25 @@ namespace TSXNetCoreClient
 
         #region methods
 
-        public void ClickFind(int StarChartX, int StarChartY) =>
-            Convert.ToInt32(Link.TSXSend(TSXCLASS + "ClickFind(" +
+        public void ClickFind(int StarChartX, int StarChartY)
+        {
+            ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "ClickFind(" +
                 StarChartX.ToString() + "," +
                 StarChartY.ToString() + ")"));
+            TSXNetCoreClient.LastObjectInformation = "sky6ObjectInformation.";
+        }
 
         public void EquatorialToStarChartXY(double RA, double Dec) =>
             Link.TSXSend(TSXCLASS + "EquatorialToStarChartXY(" +
                 RA.ToString() + "," +
                 Dec.ToString() + ")");
 
-        public void Find(string ObjectName) =>
+        public void Find(string ObjectName)
+        {
             Link.TSXSend(TSXCLASS + "Find(" +
                 "\"" + ObjectName + "\"" + ")");
+            TSXNetCoreClient.LastObjectInformation = "sky6ObjectInformation.";
+        }
 
         public void Refresh() => Link.TSXSend(TSXCLASS + "Refresh()");
 
@@ -101,28 +107,28 @@ namespace TSXNetCoreClient
 
         public double Declination
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "Declination"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "Declination"));
             set => Link.TSXSend(TSXCLASS + "Declination=" + value.ToString() + ";");
         }
 
 
         public double FieldOfView
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "FieldOfView"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "FieldOfView"));
             set => Link.TSXSend(TSXCLASS + "FieldOfView=" + value.ToString() + ";");
         }
 
 
         public double Rotation
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "Rotation"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "Rotation"));
             set => Link.TSXSend(TSXCLASS + "Rotation=" + value.ToString() + ";");
         }
 
 
         public int HeightInPixels
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "HeightInPixels"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "HeightInPixels"));
             set => Link.TSXSend(TSXCLASS + "HeightInPixels=" + value.ToString() + ";");
         }
 
@@ -136,14 +142,14 @@ namespace TSXNetCoreClient
 
         public int WidthInPixels
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "WidthInPixels"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "WidthInPixels"));
             set => Link.TSXSend(TSXCLASS + "WidthInPixels=" + value.ToString() + ";");
         }
 
 
         public double RightAscension
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "RightAscension"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "RightAscension"));
             set => Link.TSXSend(TSXCLASS + "RightAscension=" + value.ToString() + ";");
         }
 
@@ -207,14 +213,14 @@ namespace TSXNetCoreClient
 
         public double dOut0
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut0"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut0"));
             set => Link.TSXSend(TSXCLASS + "dOut0=" + value.ToString() + ";");
         }
 
 
         public double dOut1
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut1"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut1"));
             set => Link.TSXSend(TSXCLASS + "dOut1=" + value.ToString() + ";");
         }
 

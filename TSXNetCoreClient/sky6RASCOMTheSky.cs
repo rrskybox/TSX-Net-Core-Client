@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class sky6RASCOMTheSky
@@ -67,53 +65,53 @@ namespace TSXNetCoreClient
 
         public double dObjectAlt
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectAlt"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectAlt"));
             set => Link.TSXSend(TSXCLASS + "dObjectAlt=" + value.ToString() + ";");
         }
 
         public double dObjectAz
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectAz"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectAz"));
             set => Link.TSXSend(TSXCLASS + "dObjectAz=" + value.ToString() + ";");
         }
         public double dObjectDec
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectDec"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectDec"));
             set => Link.TSXSend(TSXCLASS + "dObjectDec=" + value.ToString() + ";");
         }
         public double dObjectRa
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectRa"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dObjectRa"));
             set => Link.TSXSend(TSXCLASS + "dObjectRa=" + value.ToString() + ";");
         }
         public double dScreenDec
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenDec"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenDec"));
             set => Link.TSXSend(TSXCLASS + "dScreenDec=" + value.ToString() + ";");
         }
         public double dScreenFOV
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenFOV"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenFOV"));
             set => Link.TSXSend(TSXCLASS + "dScreenFOV=" + value.ToString() + ";");
         }
         public double dScreenRa
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenRa"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenRa"));
             set => Link.TSXSend(TSXCLASS + "dScreenRa=" + value.ToString() + ";");
         }
         public double dScreenRotation
         {
-            get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenRotation"));
+            get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dScreenRotation"));
             set => Link.TSXSend(TSXCLASS + "dScreenRotation=" + value.ToString() + ";");
         }
         public int IsConnected
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsConnected"));
         }
 
         public int IsAsynchronous
         {
-            get => Convert.ToInt32(Link.TSXSend(TSXCLASS + "IsAsynchronous"));
+            get => ReliableConvert.ToInt32(Link.TSXSend(TSXCLASS + "IsAsynchronous"));
             set => Link.TSXSend(TSXCLASS + "IsAsynchronous=" + value.ToString() + ";");
         }
         #endregion

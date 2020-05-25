@@ -9,8 +9,6 @@
 // 
 //***************************************************************************************
 
-using System;
-
 namespace TSXNetCoreClient
 {
     public class sky6Utils
@@ -136,17 +134,17 @@ namespace TSXNetCoreClient
 
         public string strOut { get => Link.TSXSend(TSXCLASS + "strOut"); }
 
-        public double dOut0 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut0")); }
+        public double dOut0 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut0")); }
 
-        public double dOut1 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut1")); }
+        public double dOut1 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut1")); }
 
-        public double dOut2 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut2")); }
+        public double dOut2 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut2")); }
 
-        public double dOut3 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut3")); }
+        public double dOut3 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut3")); }
 
-        public double dOut4 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut4")); }
+        public double dOut4 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut4")); }
 
-        public double dOut5 { get => Convert.ToDouble(Link.TSXSend(TSXCLASS + "dOut5")); }
+        public double dOut5 { get => ReliableConvert.ToDouble(Link.TSXSend(TSXCLASS + "dOut5")); }
 
         #endregion
     }
